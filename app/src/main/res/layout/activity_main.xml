@@ -6,7 +6,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:padding="10dp">
+<!--    Line 10 is about having 10dp padding for every component-->
 
     <Button
         android:id="@+id/btnShowToast"
@@ -15,7 +17,28 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="281dp"
+        android:layout_marginStart="147dp"
+        android:layout_marginTop="102dp"
         android:text="Show Toast" />
+<!--    Wrap content means ngam ngam size for content, match parent means same size as device basically-->
+
+    <EditText
+        android:id="@+id/etUserMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="205dp"
+        android:ems="10"
+        android:hint="Enter your name" />
+<!--    hint is just like a placeholder-->
+
+    <Button
+        android:id="@+id/btnSendMessageToNextActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="279dp"
+        android:text="Send data to next activity" />
 </RelativeLayout>

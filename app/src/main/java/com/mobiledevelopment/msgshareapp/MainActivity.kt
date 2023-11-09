@@ -1,8 +1,10 @@
 package com.mobiledevelopment.msgshareapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -22,6 +24,24 @@ class MainActivity : AppCompatActivity(){
             //Toast is the popup for users, make sure it have ".show()"
             //Parameters, current activity, text, length of popup
             Toast.makeText(this, "Button was clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        val btnSendDataToNextActivity: Button = findViewById(R.id.btnSendMessageToNextActivity)
+        btnSendDataToNextActivity.setOnClickListener {
+
+            //Everytime want to use ID from xml just create local variable, and set the data type according to the xml file
+            val etUserMessage: EditText = findViewById(R.id.etUserMessage)
+            //What happened here is what text is in the "Edit Text", it will be converted to String and stored inside message variable
+            val message: String = etUserMessage.text.toString()
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+
+            //Intent is basically what u wanna do
+            //Currently we just wanna navigate to another activity
+            //Create variable, use Intent with parameters of address of current activity and the target activity
+            //include ::class.java
+            val intent = Intent(this, SecondActivity::class.java)
+            //Basically starts a new activity
+            startActivity(intent)
         }
     }
 }
