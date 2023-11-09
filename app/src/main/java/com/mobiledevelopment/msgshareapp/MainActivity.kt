@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         //This is attaching the xml file to the kt file
         setContentView(R.layout.activity_main)
 
@@ -29,17 +30,26 @@ class MainActivity : AppCompatActivity(){
         val btnSendDataToNextActivity: Button = findViewById(R.id.btnSendMessageToNextActivity)
         btnSendDataToNextActivity.setOnClickListener {
 
+            //This part will be comment
             //Everytime want to use ID from xml just create local variable, and set the data type according to the xml file
             val etUserMessage: EditText = findViewById(R.id.etUserMessage)
+
             //What happened here is what text is in the "Edit Text", it will be converted to String and stored inside message variable
             val message: String = etUserMessage.text.toString()
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+
+//            //This part is commented because recent update, is at second activity
+//            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
             //Intent is basically what u wanna do
             //Currently we just wanna navigate to another activity
             //Create variable, use Intent with parameters of address of current activity and the target activity
             //include ::class.java
             val intent = Intent(this, SecondActivity::class.java)
+
+            //putExtra method is to send data to another activity
+            //parameters are key(unique name) and value(variable or message)
+            intent.putExtra("user_message", message)
+
             //Basically starts a new activity
             startActivity(intent)
         }
